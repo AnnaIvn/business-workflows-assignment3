@@ -13,7 +13,7 @@ from pdf_converter import convert_pdf_to_markdown
 
 pdf_path = "tests/bread.pdf"
 
-output_path = "data/markdown/sample.md"
+output_path = "data/markdown/bread.md"
 
 markdown = convert_pdf_to_markdown(
     pdf_path,
