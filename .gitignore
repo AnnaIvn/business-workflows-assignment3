@@ -1,0 +1,36 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Airflow files
+airflow.cfg
+airflow.db
+airflow.db-*
+logs/
+airflow-webserver.pid
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Research PDFs (do not upload papers to GitHub)
+*.pdf
+
+# Generated Markdown files
+data/markdown/
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
