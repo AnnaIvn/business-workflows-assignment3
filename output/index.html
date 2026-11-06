@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Research Paper Library</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            color: #263238;
+            margin: 0;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #263b53;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #667085;
+        }
+
+        .filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        input, select {
+            padding: 12px;
+            border: 1px solid #ccd2d9;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        select {
+            min-width: 200px;
+            background: white;
+        }
+
+        .paper-card {
+            background: white;
+            border: 1px solid #e0e5eb;
+            border-radius: 8px;
+            padding: 22px;
+            margin-bottom: 18px;
+        }
+
+        .paper-card h2 {
+            color: #263b53;
+            font-size: 20px;
+            margin-top: 0;
+        }
+
+        .category {
+            display: inline-block;
+            background: #e8eff8;
+            color: #31577d;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .summary {
+            line-height: 1.6;
+            color: #485465;
+        }
+
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 15px;
+        }
+
+        .keyword {
+            background: #edf2ed;
+            color: #45634b;
+            padding: 5px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .date {
+            color: #89929e;
+            font-size: 12px;
+            margin-bottom: 0;
+            margin-top: 18px;
+        }
+
+        .results-count {
+            color: #667085;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .empty-message {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            color: #667085;
+            padding: 30px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            input, select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Research Paper Library</h1>
+        <p class="subtitle">
+            Your searchable collection of research papers.
+        </p>
+    </header>
+
+    <div class="filters">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title, summary or keywords..."
+        >
+
+        <select id="categoryFilter">
+            <option value="">All categories</option>
+            <option value="Baking and Dough Processing">Baking and Dough Processing</option>
+<option value="Food Biophysics">Food Biophysics</option>
+<option value="food science">food science</option>
+        </select>
+
+    </div>
+
+    <p class="results-count" id="resultsCount">
+        3 papers found
+    </p>
+
+    <main id="paperList">
+        
+        <article class="paper-card"
+                 data-category="food science"
+                 data-search="high-fiber belgian waffles: quality characteristics and consumer acceptance, product-elicited emotions, and purchase intent evaluated by millennial consumers the study examines the quality characteristics, consumer acceptance, and emotional responses to high-fiber belgian waffles, with a focus on millennial consumers. it evaluates how these factors influence purchase intent and sensory perceptions. the research compares traditional and high-fiber versions to understand consumer preferences and the impact of dietary fiber on product acceptance. food science dietary fiber consumer acceptance sensory evaluation purchase intent millennial consumers">
+
+            <h2>High-Fiber Belgian Waffles: Quality Characteristics and Consumer Acceptance, Product-Elicited Emotions, and Purchase Intent Evaluated by Millennial Consumers</h2>
+
+            <span class="category">food science</span>
+
+            <p class="summary">The study examines the quality characteristics, consumer acceptance, and emotional responses to high-fiber Belgian waffles, with a focus on millennial consumers. It evaluates how these factors influence purchase intent and sensory perceptions. The research compares traditional and high-fiber versions to understand consumer preferences and the impact of dietary fiber on product acceptance.</p>
+
+            <div class="keywords">
+                <span class="keyword">dietary fiber</span><span class="keyword">consumer acceptance</span><span class="keyword">sensory evaluation</span><span class="keyword">purchase intent</span><span class="keyword">millennial consumers</span>
+            </div>
+
+            <p class="date">
+                Processed: 2026-11-06T19:15:28.950007+00:00
+            </p>
+
+        </article>
+        
+
+        <article class="paper-card"
+                 data-category="Baking and Dough Processing"
+                 data-search="the effect of oxidation and intermediate proof on work requirements for optimum short-process bread! the study examines the effects of work input level, oxidation, and intermediate proof on bread quality in a short baking process. the minimum period of chemical oxidants required was high, and intermediate proof affects loaf volume. when oxidants are not used, loaf volume decreases, and more work is needed to produce satisfactory baking. baking and dough processing oxidation intermediate proof work requirements baking process dough rheology">
+
+            <h2>The Effect of Oxidation and Intermediate Proof on Work Requirements for Optimum Short-Process Bread!</h2>
+
+            <span class="category">Baking and Dough Processing</span>
+
+            <p class="summary">The study examines the effects of work input level, oxidation, and intermediate proof on bread quality in a short baking process. The minimum period of chemical oxidants required was high, and intermediate proof affects loaf volume. When oxidants are not used, loaf volume decreases, and more work is needed to produce satisfactory baking.</p>
+
+            <div class="keywords">
+                <span class="keyword">oxidation</span><span class="keyword">intermediate proof</span><span class="keyword">work requirements</span><span class="keyword">baking process</span><span class="keyword">dough rheology</span>
+            </div>
+
+            <p class="date">
+                Processed: 2026-11-06T18:35:26.531482+00:00
+            </p>
+
+        </article>
+        
+
+        <article class="paper-card"
+                 data-category="Food Biophysics"
+                 data-search="thermo-mechanical properties of soft candy: application of time-temperature superposition to mimic response at high deformation rates the study examines the effects of temperature and time scale on thermo-mechanical properties of different soft candies. time-temperature superposition was applied to small amplitude oscillatory shear experiments, resulting in master curves covering a frequency window up to 10^5 rad/s, relevant for rapid processing. the research highlights the influence of crystalline phases on material properties and provides insights into optimizing candy formulations for efficient processing. food biophysics soft candy fondant thermo-mechanical properties time-temperature superposition rapid processing">
+
+            <h2>Thermo-Mechanical Properties of Soft Candy: Application of Time-Temperature Superposition to Mimic Response at High Deformation Rates</h2>
+
+            <span class="category">Food Biophysics</span>
+
+            <p class="summary">The study examines the effects of temperature and time scale on thermo-mechanical properties of different soft candies. Time-temperature superposition was applied to small amplitude oscillatory shear experiments, resulting in master curves covering a frequency window up to 10^5 rad/s, relevant for rapid processing. The research highlights the influence of crystalline phases on material properties and provides insights into optimizing candy formulations for efficient processing.</p>
+
+            <div class="keywords">
+                <span class="keyword">Soft candy</span><span class="keyword">Fondant</span><span class="keyword">Thermo-mechanical properties</span><span class="keyword">Time-temperature superposition</span><span class="keyword">Rapid processing</span>
+            </div>
+
+            <p class="date">
+                Processed: 2026-11-06T00:36:53.809094+00:00
+            </p>
+
+        </article>
+        
+    </main>
+
+    <p class="no-results" id="noResults">
+        No matching papers found.
+    </p>
+
+</div>
+
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const paperCards = document.querySelectorAll(".paper-card");
+    const resultsCount = document.getElementById("resultsCount");
+    const noResults = document.getElementById("noResults");
+
+    function filterPapers() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        const selectedCategory = categoryFilter.value;
+
+        let visibleCount = 0;
+
+        paperCards.forEach(card => {
+            const searchText = card.dataset.search;
+            const category = card.dataset.category;
+
+            const matchesSearch = searchText.includes(searchTerm);
+
+            const matchesCategory =
+                selectedCategory === "" ||
+                category === selectedCategory;
+
+            const visible = matchesSearch && matchesCategory;
+
+            card.style.display = visible ? "block" : "none";
+
+            if (visible) {
+                visibleCount++;
+            }
+        });
+
+        resultsCount.textContent =
+            `${visibleCount} papers found`;
+
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
+    }
+
+    searchInput.addEventListener("input", filterPapers);
+    categoryFilter.addEventListener("change", filterPapers);
+</script>
+
+</body>
+</html>

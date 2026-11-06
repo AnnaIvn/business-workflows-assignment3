@@ -10,14 +10,15 @@ MODEL_NAME = "qwen3:1.7b"
 OLLAMA_BASE_URL = "http://localhost:11434/v1"
 
 # Limit input size to avoid overwhelming the local model
-MAX_INPUT_CHARS = 8000
+MAX_INPUT_CHARS = 2500
 
 
 def create_client() -> OpenAI:
-    # Create a client connected to the local Ollama server
     return OpenAI(
         base_url=os.getenv("OLLAMA_BASE_URL", OLLAMA_BASE_URL),
-        api_key="ollama"
+        api_key="ollama",
+        timeout=900.0,
+        max_retries=0
     )
 
 
@@ -57,8 +58,8 @@ Analyze this research paper and extract its metadata.
 
 Return a JSON object with exactly these fields:
 - title: paper title
-- summary: summary in 3-5 sentences
-- keywords: list of 5-10 keywords
+- summary: summary in 3 sentences
+- keywords: list of 5 keywords
 - category: one main subject category
 
 Use only information from the document.
@@ -82,13 +83,9 @@ DOCUMENT:
         ],
         response_format={"type": "json_object"},
         temperature=0.1,
-        max_tokens=1200,
+        max_tokens=1000,
         extra_body={"think": False}
     )
-
-    # print("\n--- DEBUG: LLM RESPONSE ---")
-    # print(response.model_dump_json(indent=2))
-    # print("--- END DEBUG ---\n")
 
     content = response.choices[0].message.content
 
@@ -97,6 +94,9 @@ DOCUMENT:
 
     try:
         metadata = json.loads(content)
+        # print("\n--- GENERATED JSON ---")
+        # print(json.dumps(metadata, indent=4, ensure_ascii=False))
+        # print("--- END GENERATED JSON ---\n")
     except json.JSONDecodeError as error:
         raise ValueError(
             f"The LLM returned invalid JSON: {content}"
